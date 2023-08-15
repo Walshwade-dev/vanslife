@@ -32,7 +32,7 @@ const VansList = () => {
         ))
 
     return(
-      <div className="van-list-container lg:-mt-10 lg:mb-0 text-center w-full lg:h-[150vh] h-[370vh] pt-10 lg:pt-14 text-content bg-bkg overflow-x-auto pb-28">
+      <div className="van-list-container lg:-mt-10 lg:mb-0 text-center w-full lg:h-[150vh] h-[370vh] pt-10 lg:pt-14 text-content bg-bkg pb-28">
         <h1 className="text-2xl lg:text-4xl font-bold pt-20">Explore our vans options</h1>
         <div className="van-list grid grid-col-1 mx-5 lg:mx-28 mt-5 gap-y-10 lg:gap-x-40 lg:grid-cols-3 lg:justify-center lg:items-center lg:gap-x-50 lg:gap-y-0 lg:mr-[10%] lg:mt-16 lg:mb-0">
             {vanElements}
