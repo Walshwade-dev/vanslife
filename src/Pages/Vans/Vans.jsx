@@ -25,7 +25,7 @@ const VansList = () => {
                     <h3 className="van-info-title text-xl font-bold mr-auto">{van.name}</h3>
                     <p className="font-bold text-xl">${van.price}<span className="font-normal">/day</span></p>
                 </div>
-                <div className="absolute left-2">
+                <div className="absolute left-2 lg:right-0">
                     <i className={`van-type ${van.type} selected  lg:-ml-[20.2rem]`}>{van.type}</i>
                 </div>
             </div>
