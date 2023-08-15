@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  /* :root {
+    --color-bkg: 210deg 40% 98%;
+    --color-content: 217deg 32.6% 17.5%;
+  } */
+
+  :root[data-theme="dark"] {
+    --color-bkg: 261deg 50% 28%;
+    --color-content: 24deg 100% 88%;
+    --color-content-hv: 24deg 100% 58%;
+    --color-hostLw: 249deg 43% 57%;
+    --color-hostUp: 253deg 89% 83%;
+  }
+  
+  :root[data-theme="light"] {
+    --color-bkg: 35deg 58.1% 94.0%;
+    --color-content: 216deg 69% 20%;
+    --color-content-hv: 216deg 69% 50%;
+    --color-hostLw: 36deg 100% 81%;
+    --color-hostUp: 36deg 81% 71%;
+  }
+}
+
+
+

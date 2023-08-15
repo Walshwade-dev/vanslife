@@ -1,0 +1,61 @@
+.navbar {
+    z-index: 2;
+}
+
+.nav--text > a {
+    margin-right: 2rem;
+}
+
+.nav--text > a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.Active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navbar.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(1rem) ;
+    margin-left: -1rem;
+}
+
+.navbar.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(1rem) ;
+    margin-left: -1rem;
+}
+
+.sidebar {
+    position: fixed;
+    top: 5rem; /* Adjust the top value to create space below the navbar */
+    right: -25%;
+    width: 25%;
+    height: calc(100% - 10rem); /* Adjust height to fit the viewport below the navbar */
+    transition: right 0.3s ease;
+    z-index: 1;
+}
+
+.sidebar.open {
+    width: 50%;
+    right: 0; /* Slide in from the right when open */
+}
+
+
+.menu {
+    margin-top: 2rem;
+}
+
+li > a {
+    margin-left: 1rem;
+    font-size: larger;
+    font-weight: 600;
+}
+
+li > a:hover {
+    text-decoration: underline;
+}
