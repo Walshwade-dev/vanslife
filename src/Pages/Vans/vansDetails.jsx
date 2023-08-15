@@ -17,7 +17,7 @@ const vansDetails = () => {
     
                 
   return (
-    <div className="px-4 py-32 text-bkg bg-bkg h-[100vh] lg:px-10">
+    <div className="px-4 py-32 text-bkg bg-bkg md:h-[100vh] lg:px-10">
       <Link to=".." relative="path">
         <h4 className="text-content font-semibold underline mb-4">Back to Vans</h4>
       </Link>

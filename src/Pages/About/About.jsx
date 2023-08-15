@@ -5,7 +5,7 @@ import "./index.css";
 
 const About = () => {
     return (
-    <div className='overflow-x-auto bg-bkg w-full h-[150vh] lg:h-[150vh] '>
+    <div className='overflow-x-auto bg-bkg w-full h-[220vh] md:h-[150vh] lg:h-[150vh] '>
     
         <section className="absolute left-10 right-10 top-28 lg:top-[20%] bottom-[-10%]  lg:left-[22%] lg:mr-[20%] text-content">
             <div className=" h-[20vh] lg:h-[50vh] w-full bg-contain bg-no-repeat" style={{backgroundImage: `url(${image})`,}}></div>
