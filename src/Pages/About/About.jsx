@@ -5,7 +5,7 @@ import "./index.css";
 
 const About = () => {
     return (
-    <div className='overflow-x-auto bg-bkg w-full h-[110vh] lg:h-[150vh] '>
+    <div className='overflow-x-auto bg-bkg w-full h-[150vh] lg:h-[150vh] '>
     
         <section className="absolute left-10 right-10 top-28 lg:top-[20%] bottom-[-10%]  lg:left-[22%] lg:mr-[20%] text-content">
             <div className=" h-[20vh] lg:h-[50vh] w-full bg-contain bg-no-repeat" style={{backgroundImage: `url(${image})`,}}></div>
@@ -19,7 +19,7 @@ const About = () => {
             <p className='text-xl lg:text-2xl mt-10'>
                 Our team is full of vanlife enthusiasts who know firsthand the magic of touring the world on 4 wheels.
             </p>
-            <div className='button--container bg-[#ff8c38] mt-6 lg:mt-10  rounded h-[9rem] lg:h-[15rem] p-1 lg:p-5'>
+            <div className='button--container bg-[#ff8c38] mt-6 lg:mt-10  rounded h-[12rem] lg:h-[15rem] p-1 lg:p-5'>
                 <p className='text-xl lg:text-2xl font-bold'>
                     Your destination is waiting.<br/>
                     Your van is ready

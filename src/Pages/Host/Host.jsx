@@ -10,8 +10,8 @@ const Host = () => {
     }
 
     return(
-        <div className="host-container bg-bkg text-content pt-20 h-[120vh] overflow-auto lg:pl-[15rem]">
-            <div className="host-navbar pt-10 pl-10 flex gap-x-6">
+        <div className="host-container bg-bkg text-content pt-20 h-[130vh] overflow-auto lg:pl-[15rem]">
+            <div className="host-navbar pt-10 px-4 flex gap-x-6">
                 <NavLink to="." end style={({isActive}) => isActive ? active : null}>Dashboard</NavLink>
                 <NavLink to="income" style={({isActive}) => isActive ? active : null}>Income</NavLink>
                 <NavLink to="vans" style={({isActive}) => isActive ? active : null}>Vans</NavLink>

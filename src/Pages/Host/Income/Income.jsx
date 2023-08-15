@@ -4,7 +4,7 @@ import Graph from "../../../assets/graph.png"
 
 const Income = () => {
      return(
-        <div className="income-container ml-10">
+        <div className="income-container px-4 pb-10">
             <section className="pt-5">
                 <h1 className="font-bold text-3xl">Income</h1>
                 <p className="text-sm mt-2">last  <span className="font-bold underline"> 30 days</span></p>

@@ -30,13 +30,13 @@ function hostVansDetails() {
     
 
     const vanElements = vanDetails.map(van => (
-        <div key={van.id} className="mr-10">
+        <div key={van.id} >
             <div className="flex items-center">
                 <div className="mr-4">
-                    <img src={van.imageUrl} className="h-28 w-28" alt="van"/>
+                    <img src={van.imageUrl} className="h-24 " alt="van"/>
                 </div>
 
-                <div className=" text-hostLw ">
+                <div className=" text-hostLw">
                     <button className="h-7 w-[5rem] bg-orange-500 font-semibold rounded-md">{van.type}</button>
                     <h2 className="font-semibold text-xl">{van.name}</h2>
                     <p className="font-semibold">${van.price}<span className="font-normal">/day</span></p>
@@ -71,7 +71,7 @@ function hostVansDetails() {
 
 
     return (
-    <div className="ml-9 mt-10 overflow-auto">
+    <div className="px-4 mt-10 overflow-auto">
         <div>
             <Link to=".." relative="path" className="cursor-pointer"><h1 className="font-semibold text-xl underline">Back to all vans</h1></Link>
         </div>

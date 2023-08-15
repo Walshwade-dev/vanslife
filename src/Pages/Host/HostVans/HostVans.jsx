@@ -33,7 +33,7 @@ const HostVans = () => {
 
 
      return(
-        <div className="mt-10 pl-9 lg:w-1/4 md:w-1/2 w-4/3">
+        <div className="mt-10 px-4 lg:w-1/4 md:w-1/2 w-4/3">
             <h1 className="font-bold text-4xl">Your Listed vans</h1>
             
             <section className="host-vans-container mt-4">

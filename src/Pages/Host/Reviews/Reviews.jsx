@@ -18,7 +18,7 @@ const Reviews = () => {
     
 
      return(
-        <div className="income-container ml-10 w-[20rem]">
+        <div className="income-container px-4 w-[20rem]">
             <section className="pt-5 flex">
                 <h1 className="font-bold text-3xl mr-auto">Your reviews</h1>
                 <p className="text-sm mt-2">last  <span className="font-bold underline"> 30 days</span></p>
