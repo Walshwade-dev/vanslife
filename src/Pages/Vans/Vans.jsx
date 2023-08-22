@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useSearchParams,Link } from "react-router-dom";
 import "./index.css"
 import { useEffect, useState } from "react";
 
@@ -6,6 +6,12 @@ import { useEffect, useState } from "react";
 const VansList = () => {
 
     const [vans, setVans] =useState([])
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const typeFilter = searchParams.get("type");
+
+    const filteredVans = typeFilter ? vans.filter(van => van.type === typeFilter) : vans;
+   
 
     useEffect(() => {
         fetch("/api/vans")
@@ -13,7 +19,7 @@ const VansList = () => {
             .then(data => setVans(data.vans))
     }, [])
 
-      const vanElements = vans.map((van) => (
+      const vanElements = filteredVans.map((van) => (
             <div key={van.id} className="van-tile rounded relative  h-[25rem]  lg:h-[35rem] lg:w-[28rem] lg:mb-10 dark:bg-content dark:text-bkg">
                 <div className="h-[80%]">
                     <Link className="w-full h-[15rem]" to={`/vans/${van.id}`}>
@@ -34,6 +40,29 @@ const VansList = () => {
     return(
       <div className="van-list-container lg:-mt-10 lg:mb-0 text-center w-full lg:h-[150vh] md:h-[370vh] h-[600vh] pt-10 lg:pt-14 text-content bg-bkg pb-28">
         <h1 className="text-2xl lg:text-4xl font-bold pt-20">Explore our vans options</h1>
+
+        <div className="mt-10 flex justify-center items-center ml-10">
+        <div className="van-list-filter-buttons">
+                <button 
+                    onClick={() => setSearchParams({type: "simple"})}
+                    className="van-type simple"
+                >Simple</button>
+                <button 
+                    onClick={() => setSearchParams({type: "luxury"})}
+                    className="van-type luxury"
+                >Luxury</button>
+                <button 
+                    onClick={() => setSearchParams({type: "rugged"})}
+                    className="van-type rugged"
+                >Rugged</button>
+                <button 
+                    onClick={() => setSearchParams({})}
+                    className="van-type clear-filters"
+                >Clear filter</button>
+            
+            </div>
+        </div>
+
         <div className="van-list grid grid-col-1 mx-5 lg:mx-28 mt-5 gap-y-10 lg:gap-x-40 lg:grid-cols-3 lg:justify-center lg:items-center lg:gap-x-50 lg:gap-y-0 lg:mr-[10%] lg:mt-16 lg:mb-0">
             {vanElements}
         </div>
