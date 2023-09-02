@@ -1,28 +1,39 @@
-import { useSearchParams,Link } from "react-router-dom";
+import { useSearchParams,Link, useLoaderData} from "react-router-dom";
 import "./index.css"
-import { useEffect, useState } from "react";
+
+
+import { getVans } from "../../api";
+
+
+
+export function loader() {
+    return getVans();
+}
+
 
 
 const VansList = () => {
 
-    const [vans, setVans] =useState([])
+
+    
+    
+    
+    // const [vans, setVans] =useState([])
     const [searchParams, setSearchParams] = useSearchParams();
 
+
+    const vans = useLoaderData();
+    
     const typeFilter = searchParams.get("type");
 
     const filteredVans = typeFilter ? vans.filter(van => van.type === typeFilter) : vans;
    
-
-    useEffect(() => {
-        fetch("/api/vans")
-            .then(res => res.json())
-            .then(data => setVans(data.vans))
-    }, [])
+    
 
       const vanElements = filteredVans.map((van) => (
             <div key={van.id} className="van-tile rounded relative  h-[25rem]  lg:h-[35rem] lg:w-[28rem] lg:mb-10 dark:bg-content dark:text-bkg">
                 <div className="h-[80%]">
-                    <Link className="w-full h-[15rem]" to={`/vans/${van.id}`}>
+                    <Link className="w-full h-[15rem]" to={van.id} state={{search: `?${searchParams.toString()}`, type: typeFilter }}> 
                         <img className="h-[100%] w-full rouded rounded-t-md"  src={van.imageUrl} />
                     </Link>
                 </div>
@@ -37,12 +48,14 @@ const VansList = () => {
             </div>
         ))
 
+
+
     return(
-      <div className="van-list-container lg:-mt-10 lg:mb-0 text-center w-full lg:h-[150vh] md:h-[370vh] h-[600vh] pt-10 lg:pt-14 text-content bg-bkg pb-28">
+      <div className="van-list-container lg:-mt-10 lg:mb-0 text-center w-full lg:h-[200vh] md:h-[370vh] h-[620vh] pt-10 lg:pt-14 text-content bg-bkg pb-28">
         <h1 className="text-2xl lg:text-4xl font-bold pt-20">Explore our vans options</h1>
 
         <div className="mt-10 flex justify-center items-center ml-10">
-        <div className="van-list-filter-buttons">
+        <div className="van-list-filter-buttons grid grid-rows-2 grid-flow-col gap-4 lg:flex ">
                 <button 
                     onClick={() => setSearchParams({type: "simple"})}
                     className={

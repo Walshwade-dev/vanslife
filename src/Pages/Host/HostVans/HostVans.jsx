@@ -19,7 +19,7 @@ const HostVans = () => {
     const hostVansDetails = hostVans.map( van => (
         <div className="van-tile flex  rounded-md h-[5rem] pr-4 dark:bg-content dark:text-bkg mt-5" key={van.id}>
             <section className="flex items-center mr-auto">
-                <Link to={`/host/vans/${van.id}`} className="cursor-pointer h-full"><img className="h-full rounded-l-md" src={van.imageUrl} /></Link>
+                <Link to={van.id} className="cursor-pointer h-full"><img className="h-full rounded-l-md" src={van.imageUrl} /></Link>
                 <div className="ml-2">
                     <Link to={`/host/vans/${van.id}`} className="cursor-pointer h-full"><p className="font-bold text-xl">{van.name}</p></Link>
                     <p>${van.price}<span>/day</span></p>
