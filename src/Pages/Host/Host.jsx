@@ -1,5 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
 import { NavLink, Outlet } from "react-router-dom";
+import  requireAuth  from "../../utils";
 
+export async function loader() {
+    await requireAuth();
+    return null;
+}
 
 const Host = () => {
 

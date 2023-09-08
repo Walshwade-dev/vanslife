@@ -1,22 +1,20 @@
 import "./index.css"
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useEffect, useState } from "react"
-import {Link, useParams, useLocation } from "react-router-dom"
 
+import {Link, useLoaderData, useLocation } from "react-router-dom"
+import { getVans } from "../../api";
+import  requireAuth  from "../../utils"
 
+export async function loader({params}){
+  await requireAuth();
+  return getVans(params.id);
+}
 
 const vansDetails = () => {
-    const {id} = useParams();
     const location = useLocation();
 
-
-    const [vanDetail, setVanDetail] =useState([])
-
-    useEffect(() => {
-      fetch (`/api/vans/${id}`)
-          .then(res => res.json())
-          .then(data => setVanDetail(data.vans))
-      }, [id]);
+    const vanDetail = useLoaderData();
+  
 
     const search = location.state ?.search || ""
     const type = location.state?.type || "all"

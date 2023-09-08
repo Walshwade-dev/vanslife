@@ -1,27 +1,20 @@
-
-import { useEffect, useState } from "react"
-import { Link, useParams, Outlet, NavLink} from "react-router-dom"
+/* eslint-disable react-refresh/only-export-components */
 
 
-function hostVansDetails() {
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const[vanDetails, setVanDetails] = useState(null);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const {id} = useParams();
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(()=> {fetch(`/api/host/vans/${id}`)
-                        .then(res => res.json())
-                        .then(data => setVanDetails(data.vans))
-    }, [id]);
+import { Link, Outlet, NavLink,useLoaderData} from "react-router-dom"
+import { getHostVans } from "../../../../api";
+import  requireAuth  from "../../../../utils";
 
 
-    console.log(vanDetails)
+export async function loader( {params}){
+    await requireAuth();    
+    return getHostVans(params.id);
+}
 
-    if (!vanDetails) {
-        return <h1>Loading.....</h1>
-    }
+
+const HostVansDetails = () =>  {
+
+    const vanDetails = useLoaderData();
 
     const activeStyles = {
         backgroundColor: "#7062c0",
@@ -85,4 +78,4 @@ function hostVansDetails() {
 }
 
 
-export default hostVansDetails;
+export default HostVansDetails;
